@@ -23,4 +23,6 @@
     <include file="config/liquibase/changelog/20190715135741_added_entity_constraints_Book.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20190715135742_added_entity_constraints_BorrowedBook.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
+    <!--    Gamurar changelogs-->
+    <include file="config/liquibase/changelog/20190717135742_load_book_author_data.xml" relativeToChangelogFile="false"/>
 </databaseChangeLog>

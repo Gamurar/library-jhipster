@@ -1,12 +1,11 @@
-id;isbn;name;publish_year;copies;cover;cover_content_type
-1;9780321349606;Java Concurrency in Practice;2006;5;../data/blob/java-concurency-in-practice.jpg;image/jpg
-2;9780134685991;Effective Java;2018;9;../data/blob/effective-java.jpg;image/jpg
-3;9781517671273;Elements of Programming Interviews in Java: The Insiders' Guide;2015;3;../data/blob/Elements-of-Programming-Interviews-in-Java.jpg;image/jpg
-4;9781617294549;Microservices Patterns: With examples in Java;2018;23;../data/blob/Microservices-Patterns-With-examples-in-Java.png;image/jpg
-5;9781260440232;Java: The Complete Reference, Eleventh Edition;2018;19;../data/blob/Java-The-Complete-Reference-Eleventh-Edition.jpg;image/jpg
-6;9785170923618;Виктор Пелевин: Generation 'П';2015;12;../data/blob/pelevin-generation-p.jpg;image/jpg
-7;Bedfordshire;navigate;prog;30806;../data/blob/hipster.png;image/png
-8;Benin Berkshi;dedicated Persevering;Coor;43439;../data/blob/hipster.png;image/png
-9;dot-com payme;white sensor local;calc;4360;../data/blob/hipster.png;image/png
-10;Representativ;Response Human;back;33075;../data/blob/hipster.png;image/png
-
+id;isbn;name;publish_year;copies;cover;cover_content_type;publisher_id
+1;9780321349606;Java Concurrency in Practice;2006;5;../data/blob/java-concurency-in-practice.jpg;image/jpg;1
+2;9780134685991;Effective Java;2018;9;../data/blob/effective-java.jpg;image/jpg;2
+3;9781517671273;Elements of Programming Interviews in Java: The Insiders' Guide;2015;3;../data/blob/Elements-of-Programming-Interviews-in-Java.jpg;image/jpg;3
+4;9781617294549;Microservices Patterns: With examples in Java;2018;23;../data/blob/Microservices-Patterns-With-examples-in-Java.png;image/jpg;4
+5;9781260440232;Java: The Complete Reference, Eleventh Edition;2018;19;../data/blob/Java-The-Complete-Reference-Eleventh-Edition.jpg;image/jpg;5
+6;9785170923618;Виктор Пелевин: Generation 'П';2015;12;../data/blob/pelevin-generation-p.jpg;image/jpg;6
+7;Bedfordshire;navigate;prog;30806;../data/blob/hipster.png;image/png;7
+8;Benin Berkshi;dedicated Persevering;Coor;43439;../data/blob/hipster.png;image/png;8
+9;dot-com payme;white sensor local;calc;4360;../data/blob/hipster.png;image/png;9
+10;Representativ;Response Human;back;33075;../data/blob/hipster.png;image/png;10
