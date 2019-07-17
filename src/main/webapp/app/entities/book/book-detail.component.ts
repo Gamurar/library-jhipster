@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { JhiDataUtils } from 'ng-jhipster';
 
 import { IBook } from 'app/shared/model/book.model';
+import { AccountService } from 'app/core';
 
 @Component({
   selector: 'jhi-book-detail',
@@ -11,13 +12,17 @@ import { IBook } from 'app/shared/model/book.model';
 })
 export class BookDetailComponent implements OnInit {
   book: IBook;
+  isAdmin: boolean;
+  isOperator: boolean;
 
-  constructor(protected dataUtils: JhiDataUtils, protected activatedRoute: ActivatedRoute) {}
+  constructor(protected dataUtils: JhiDataUtils, protected activatedRoute: ActivatedRoute, public accountService: AccountService) {}
 
   ngOnInit() {
     this.activatedRoute.data.subscribe(({ book }) => {
       this.book = book;
     });
+
+    this.checkAuthorities();
   }
 
   byteSize(field) {
@@ -29,5 +34,15 @@ export class BookDetailComponent implements OnInit {
   }
   previousState() {
     window.history.back();
+  }
+
+  checkAuthorities() {
+    this.accountService.hasAuthority('ROLE_ADMIN').then(isAdmin => {
+      this.isAdmin = isAdmin;
+    });
+
+    this.accountService.hasAuthority('ROLE_OPERATOR').then(isOperator => {
+      this.isOperator = isOperator;
+    });
   }
 }

@@ -86,10 +86,11 @@
                     </div>
                     <div class="book-detail__buttons">
                         <button type="button" class="btn btn-primary mr-3 w-25" data-toggle="modal"
-                                data-target="#borrow-book-modal">
+                                data-target="#borrow-book-modal"
+                                *ngIf="isOperator || isAdmin">
                             Borrow
                         </button>
-                        <button [routerLink]="['/book', book.id, 'edit']" class="btn btn-primary">Edit</button>
+                        <button [routerLink]="['/book', book.id, 'edit']" *ngIf="isAdmin" class="btn btn-primary">Edit</button>
                     </div>
                 </div>
             </div>
