@@ -6,7 +6,8 @@ import { IBook } from 'app/shared/model/book.model';
 
 @Component({
   selector: 'jhi-book-detail',
-  templateUrl: './book-detail.component.html'
+  templateUrl: './book-detail.component.html',
+  styleUrls: ['book-detail.scss']
 })
 export class BookDetailComponent implements OnInit {
   book: IBook;

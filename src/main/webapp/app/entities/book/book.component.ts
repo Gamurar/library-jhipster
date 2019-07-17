@@ -13,8 +13,7 @@ import { BookService } from './book.service';
 
 @Component({
   selector: 'jhi-book',
-  templateUrl: './book.component.html',
-  styleUrls: ['book-detail.scss']
+  templateUrl: './book.component.html'
 })
 export class BookComponent implements OnInit, OnDestroy {
   currentAccount: any;
