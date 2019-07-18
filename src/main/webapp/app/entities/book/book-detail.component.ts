@@ -3,7 +3,9 @@ import { ActivatedRoute } from '@angular/router';
 import { JhiDataUtils } from 'ng-jhipster';
 
 import { IBook } from 'app/shared/model/book.model';
-import { AccountService } from 'app/core';
+import { NgbModalRef } from "@ng-bootstrap/ng-bootstrap";
+import {BorrowModalService} from "app/core/borrow/borrow-modal.service";
+import {AccountService} from "app/core";
 
 @Component({
   selector: 'jhi-book-detail',
@@ -14,8 +16,13 @@ export class BookDetailComponent implements OnInit {
   book: IBook;
   isAdmin: boolean;
   isOperator: boolean;
+  modalRef: NgbModalRef;
 
-  constructor(protected dataUtils: JhiDataUtils, protected activatedRoute: ActivatedRoute, public accountService: AccountService) {}
+  constructor(
+    protected dataUtils: JhiDataUtils,
+    protected activatedRoute: ActivatedRoute,
+    public accountService: AccountService,
+    private borrowModalService: BorrowModalService) {}
 
   ngOnInit() {
     this.activatedRoute.data.subscribe(({ book }) => {
@@ -44,5 +51,9 @@ export class BookDetailComponent implements OnInit {
     this.accountService.hasAuthority('ROLE_OPERATOR').then(isOperator => {
       this.isOperator = isOperator;
     });
+  }
+
+  borrow() {
+    this.modalRef = this.borrowModalService.open();
   }
 }

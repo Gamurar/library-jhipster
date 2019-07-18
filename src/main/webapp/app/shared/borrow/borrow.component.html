@@ -1,0 +1,23 @@
+<form [formGroup]="borrowForm" (ngSubmit)="onSubmit()">
+    <div class="modal-header">
+        <h5 class="modal-title">Borrow the book</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+                (click)="activeModal.dismiss('closed')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <div class="form-group col">
+            <label for="client">Client</label>
+            <select id="client" class="form-control" formControlName="client">
+                <ng-container *ngFor="let client of clients">
+                    <option [ngValue]="client">{{client.firstName}} {{client.lastName}}</option>
+                </ng-container>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="cancel()">Close</button>
+        <button type="submit" class="btn btn-primary">Save</button>
+    </div>
+</form>

@@ -10,5 +10,8 @@ export interface IBorrowedBook {
 }
 
 export class BorrowedBook implements IBorrowedBook {
-  constructor(public id?: number, public borrowDate?: Moment, public book?: IBook, public client?: IClient) {}
+  constructor(public id?: number,
+              public borrowDate?: Moment,
+              public book?: IBook,
+              public client?: IClient) {}
 }
