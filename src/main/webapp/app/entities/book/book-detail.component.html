@@ -1,11 +1,9 @@
-<div class="row justify-content-center">
-    <div class="col-8">
+<button type="submit"
+        (click)="previousState()"
+        class="btn btn-info">
+    <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+</button>
         <div *ngIf="book">
-            <button type="submit"
-                    (click)="previousState()"
-                    class="btn btn-info">
-                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
-            </button>
             <jhi-alert-error></jhi-alert-error>
             <!--            <dl class="row-md jh-entity-details">-->
             <!--                <dt><span jhiTranslate="libraryApp.book.isbn">Isbn</span></dt>-->
@@ -49,7 +47,8 @@
 
             <div class="row justify-content-left mt-5 mx-3">
                 <div class="col-4 book-detail__book-cover-img">
-                    <img [src]="'data:' + book.coverContentType + ';base64,' + book.cover" class="rounded float-left w-100"
+                    <img [src]="'data:' + book.coverContentType + ';base64,' + book.cover"
+                         class="rounded float-left w-100"
                          [title]="book.name" [alt]="book.name">
                 </div>
 
@@ -90,10 +89,9 @@
                                 *ngIf="isOperator || isAdmin">
                             Borrow
                         </button>
-                        <button [routerLink]="['/book', book.id, 'edit']" *ngIf="isAdmin" class="btn btn-primary">Edit</button>
+                        <button [routerLink]="['/book', book.id, 'edit']" *ngIf="isAdmin" class="btn btn-primary">Edit
+                        </button>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>
