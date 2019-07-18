@@ -3,48 +3,8 @@
         class="btn btn-info">
     <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
 </button>
-        <div *ngIf="book">
+        <div *ngIf="book" class="book-detail">
             <jhi-alert-error></jhi-alert-error>
-            <!--            <dl class="row-md jh-entity-details">-->
-            <!--                <dt><span jhiTranslate="libraryApp.book.isbn">Isbn</span></dt>-->
-            <!--                <dd>-->
-            <!--                    <span>{{book.isbn}}</span>-->
-            <!--                </dd>-->
-            <!--                <dt><span jhiTranslate="libraryApp.book.name">Name</span></dt>-->
-            <!--                <dd>-->
-            <!--                    <span>{{book.name}}</span>-->
-            <!--                </dd>-->
-            <!--                <dt><span jhiTranslate="libraryApp.book.publishYear">Publish Year</span></dt>-->
-            <!--                <dd>-->
-            <!--                    <span>{{book.publishYear}}</span>-->
-            <!--                </dd>-->
-            <!--                <dt><span jhiTranslate="libraryApp.book.copies">Copies</span></dt>-->
-            <!--                <dd>-->
-            <!--                    <span>{{book.copies}}</span>-->
-            <!--                </dd>-->
-            <!--                <dt><span jhiTranslate="libraryApp.book.cover">Cover</span></dt>-->
-            <!--                <dd>-->
-            <!--                    <div *ngIf="book.cover">-->
-            <!--                        <a (click)="openFile(book.coverContentType, book.cover)">-->
-            <!--                            <img [src]="'data:' + book.coverContentType + ';base64,' + book.cover" style="max-width: 100%;" alt="book image"/>-->
-            <!--                        </a>-->
-            <!--                        {{book.coverContentType}}, {{byteSize(book.cover)}}-->
-            <!--                    </div>-->
-            <!--                </dd>-->
-            <!--                <dt><span jhiTranslate="libraryApp.book.publisher">Publisher</span></dt>-->
-            <!--                <dd>-->
-            <!--                    <div *ngIf="book.publisher">-->
-            <!--                        <a [routerLink]="['/publisher', book.publisher?.id, 'view']">{{book.publisher?.name}}</a>-->
-            <!--                    </div>-->
-            <!--                </dd>-->
-            <!--                <dt><span jhiTranslate="libraryApp.book.author">Author</span></dt>-->
-            <!--                <dd>-->
-            <!--                    <span *ngFor="let author of book.authors; let last = last">-->
-            <!--                        <a [routerLink]="['/author', author?.id, 'view' ]">{{author.firstName}}</a>{{last ? '' : ', '}}-->
-            <!--                    </span>-->
-            <!--                </dd>-->
-            <!--            </dl>-->
-
             <div class="row justify-content-left mt-5 mx-3">
                 <div class="col-4 book-detail__book-cover-img">
                     <img [src]="'data:' + book.coverContentType + ';base64,' + book.cover"
