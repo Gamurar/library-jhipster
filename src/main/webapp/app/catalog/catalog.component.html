@@ -1,0 +1,30 @@
+<div class="row justify-content-center mt-5">
+    <div class="col-12">
+
+        <div class="mb-5 text-center">
+            <img class="d-block mx-auto mb-4 bookshelf" alt=""
+                 width="72" height="72"
+            src="../../content/images/bookshelf.svg">
+            <h1>Library</h1>
+        </div>
+
+        <div class="row">
+            <div *ngFor="let book of books" class="card col-2 m-3 book-card">
+                <a [routerLink]="['/book', book.id, 'view' ]">
+                    <img [src]="'data:' + book.coverContentType + ';base64,' + book.cover" class="card-img-top" alt="book image">
+                    <div class="card-body">
+                        <h5 class="card-title">{{book.name}}</h5>
+                        <p class="card-text catalog__card__authors-list">
+                            <ng-container *ngFor="let author of book.authors; let last = last">
+                                <span>{{author.firstName}} {{author.lastName}}</span>
+                                <span *ngIf="!last">, </span>
+                            </ng-container>
+
+                        </p>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+    </div>
+</div>
