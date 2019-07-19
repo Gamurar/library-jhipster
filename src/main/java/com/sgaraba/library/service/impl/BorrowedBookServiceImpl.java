@@ -11,6 +11,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDate;
 import java.util.Optional;
 
 /**
@@ -36,6 +37,9 @@ public class BorrowedBookServiceImpl implements BorrowedBookService {
      */
     @Override
     public BorrowedBook save(BorrowedBook borrowedBook) {
+        if (borrowedBook.getBorrowDate() == null) {
+            borrowedBook.setBorrowDate(LocalDate.now());
+        }
         log.debug("Request to save BorrowedBook : {}", borrowedBook);
         return borrowedBookRepository.save(borrowedBook);
     }

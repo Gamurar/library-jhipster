@@ -5,9 +5,10 @@ import { ClientService } from "app/entities/client";
 import { HttpErrorResponse, HttpResponse } from "@angular/common/http";
 import { NgbActiveModal, NgbModalRef } from "@ng-bootstrap/ng-bootstrap";
 import { BorrowedBookService } from "app/entities/borrowed-book";
-import { IBorrowedBook } from "app/shared/model/borrowed-book.model";
+import {BorrowedBook, IBorrowedBook} from "app/shared/model/borrowed-book.model";
 import { IBook } from "app/shared/model/book.model";
 import {FormBuilder} from "@angular/forms";
+import moment = require("moment");
 
 @Component({
   selector: 'jhi-borrow-modal',
@@ -16,9 +17,9 @@ import {FormBuilder} from "@angular/forms";
 })
 export class BorrowModalComponent implements OnInit {
   clients: IClient[];
+  book: IBook;
   modalRef: NgbModalRef;
   borrowedBook: IBorrowedBook;
-  @Input() book: IBook;
   borrowForm = this.fb.group({
     client: Client
   });
@@ -39,14 +40,15 @@ export class BorrowModalComponent implements OnInit {
       );
   }
 
-  onSubmit() {
-    // this.clientService.create()
+  save() {
+    this.borrowService.create(new BorrowedBook(null, null, this.book, this.borrowForm.get('client').value))
+      .subscribe(res => console.log(res.body));
   }
 
   borrow(client: IClient) {
     this.borrowedBook.client = client;
     this.borrowedBook.book = this.book;
-    this.borrowService.create(this.borrowedBook);
+    this.borrowService.create(this.borrowedBook).subscribe( res => console.log(res));
   }
 
   ngOnInit() {

@@ -55,5 +55,6 @@ export class BookDetailComponent implements OnInit {
 
   borrow() {
     this.modalRef = this.borrowModalService.open();
+    this.modalRef.componentInstance.book = this.book;
   }
 }
