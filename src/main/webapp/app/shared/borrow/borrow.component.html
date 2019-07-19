@@ -7,7 +7,7 @@
         </button>
     </div>
     <div class="modal-body">
-        <div class="form-group col">
+        <div class="form-group col" *ngIf="!success">
             <label for="client">Client</label>
             <select id="client" class="form-control" formControlName="client">
                 <ng-container *ngFor="let client of clients">
@@ -15,9 +15,13 @@
                 </ng-container>
             </select>
         </div>
+
+        <div  class="alert alert-success fade" *ngIf="success" [ngClass]="{'show' : success}">
+            <span>Successfully borrowed by {{borrowedBy?.firstName}} {{borrowedBy?.lastName}}!</span>
+        </div>
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="cancel()">Close</button>
-        <button type="submit" class="btn btn-primary">Save</button>
+        <button type="submit" class="btn btn-primary" *ngIf="!success">Save</button>
     </div>
 </form>

@@ -8,7 +8,6 @@ import { BorrowedBookService } from "app/entities/borrowed-book";
 import {BorrowedBook, IBorrowedBook} from "app/shared/model/borrowed-book.model";
 import { IBook } from "app/shared/model/book.model";
 import {FormBuilder} from "@angular/forms";
-import moment = require("moment");
 
 @Component({
   selector: 'jhi-borrow-modal',
@@ -23,6 +22,8 @@ export class BorrowModalComponent implements OnInit {
   borrowForm = this.fb.group({
     client: Client
   });
+  public borrowedBy: IClient;
+  public success = false;
 
   constructor(
     private clientService: ClientService,
@@ -42,7 +43,11 @@ export class BorrowModalComponent implements OnInit {
 
   save() {
     this.borrowService.create(new BorrowedBook(null, null, this.book, this.borrowForm.get('client').value))
-      .subscribe(res => console.log(res.body));
+      .subscribe(res => {
+        console.log(res.body);
+        this.borrowedBy = res.body.client;
+        this.success = true;
+      });
   }
 
   borrow(client: IClient) {
