@@ -50,7 +50,7 @@ export const bookRoute: Routes = [
       book: BookResolve
     },
     data: {
-      authorities: ['ROLE_USER'],
+      authorities: [],
       pageTitle: 'libraryApp.book.home.title'
     },
     canActivate: [UserRouteAccessService]

@@ -12,6 +12,8 @@ export class AccountService {
   private userIdentity: any;
   private authenticated = false;
   private authenticationState = new Subject<any>();
+  private admin = false;
+  private operator = false;
 
   constructor(private languageService: JhiLanguageService, private sessionStorage: SessionStorageService, private http: HttpClient) {}
 
@@ -77,6 +79,8 @@ export class AccountService {
         if (account) {
           this.userIdentity = account;
           this.authenticated = true;
+          this.admin = account.authorities.includes('ROLE_ADMIN');
+          this.operator = account.authorities.includes('ROLE_OPERATOR');
           // After retrieve the account info, the language will be changed to
           // the user's preferred language configured in the account setting
           if (this.userIdentity.langKey) {
@@ -100,6 +104,14 @@ export class AccountService {
 
   isAuthenticated(): boolean {
     return this.authenticated;
+  }
+
+  isAdmin(): boolean {
+    return this.admin;
+  }
+
+  isOperator(): boolean {
+    return this.operator;
   }
 
   isIdentityResolved(): boolean {

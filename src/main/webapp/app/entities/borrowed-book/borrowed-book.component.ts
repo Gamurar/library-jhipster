@@ -29,6 +29,7 @@ export class BorrowedBookComponent implements OnInit, OnDestroy {
   predicate: any;
   previousPage: any;
   reverse: any;
+  public isAdmin = false;
 
   constructor(
     protected borrowedBookService: BorrowedBookService,
@@ -97,6 +98,8 @@ export class BorrowedBookComponent implements OnInit, OnDestroy {
       this.currentAccount = account;
     });
     this.registerChangeInBorrowedBooks();
+
+    this.isAdmin = this.accountService.isAdmin();
   }
 
   ngOnDestroy() {

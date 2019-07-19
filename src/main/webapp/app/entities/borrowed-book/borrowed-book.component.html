@@ -35,7 +35,12 @@
                 </td>
                 <td>
                     <div *ngIf="borrowedBook.client">
-                        <a [routerLink]="['../client', borrowedBook.client?.id, 'view' ]" >{{borrowedBook.client?.firstName}}  {{borrowedBook.client?.lastName}}</a>
+                        <a *ngIf="isAdmin" [routerLink]="['../client', borrowedBook.client?.id, 'view' ]">
+                            {{borrowedBook.client?.firstName}}  {{borrowedBook.client?.lastName}}
+                        </a>
+                        <span *ngIf="!isAdmin">
+                            {{borrowedBook.client?.firstName}}  {{borrowedBook.client?.lastName}}
+                        </span>
                     </div>
                 </td>
                 <td class="text-right">

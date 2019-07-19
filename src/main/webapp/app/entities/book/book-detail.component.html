@@ -17,7 +17,8 @@
                     <h6 class="book-detail__author-list" *ngIf="book.authors.length">
                         <span>by </span>
                         <ng-container *ngFor="let author of book.authors; let last = last">
-                            <a [routerLink]="['/author', author?.id, 'view' ]">{{author.firstName}} {{author.lastName}}</a>
+                            <a *ngIf="isAdmin" [routerLink]="['/author', author?.id, 'view' ]">{{author.firstName}} {{author.lastName}}</a>
+                            <span *ngIf="!isAdmin">{{author.firstName}} {{author.lastName}}</span>
                             <span *ngIf="!last">, </span>
                         </ng-container>
                     </h6>
@@ -27,7 +28,8 @@
                         <ul class="pl-3 pt-2">
                             <li *ngIf="book.publisher">
                                 <span class="font-weight-bolder">Publisher: </span>
-                                <a [routerLink]="['/publisher', book.publisher?.id, 'view']">{{book.publisher?.name}}</a>
+                                <a *ngIf="isAdmin" [routerLink]="['/publisher', book.publisher?.id, 'view']">{{book.publisher?.name}}</a>
+                                <span *ngIf="!isAdmin">{{book.publisher?.name}}</span>
                             </li>
                             <li *ngIf="book.publishYear">
                                 <span class="font-weight-bolder">Publish year: </span>

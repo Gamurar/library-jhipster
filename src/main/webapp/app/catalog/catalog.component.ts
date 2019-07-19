@@ -21,7 +21,7 @@ export class CatalogComponent implements OnInit {
         size: 10
       })
       .subscribe(
-        (res: HttpResponse<IBook[]>) => this.books = res.body,
+        (res: HttpResponse<IBook[]>) => {this.books = res.body; console.log(res.body)},
         (res: HttpErrorResponse) => console.error(res.message)
       );
   }
